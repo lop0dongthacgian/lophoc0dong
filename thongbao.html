@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thông báo</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    #thong-bao-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('nentb.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+
+    #thong-bao-content {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      max-width: 640px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    #thong-bao-content h2 {
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: #228B22;
+      text-align: center;
+      text-decoration: underline;
+      margin-bottom: 1.25rem;
+    }
+
+    #thong-bao-content p {
+      color: #228B22;
+      margin-bottom: 0.5rem;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div id="thong-bao-modal">
+    <div id="thong-bao-content">
+      <h2>📢 THÔNG BÁO</h2>
+      <p>Chiều chủ nhật 01/6/2025 đã là buổi học cuối của lớp nhỏ tiếng Anh khoá III - năm học 2025.</p>
+      <p>Các cháu chính thức nghỉ hè từ bây giờ!</p>
+      <p>Thông báo của lớp tiếng Anh lớn khoá III:</p>
+      <p>Đợt này cô Như có công việc nên tạm thời cho lớp nghỉ 3 tuần ( 31/5-14/6/2025)</p>
+      <p>Các con sẽ đi học lại ngày 21/6/2025</p>
+      <p>Phụ huynh cần tài liệu học hè, nhờ thầy cô chữa bài hoặc có bất kỳ câu hỏi nào...</p>
+      <p>Vui lòng nhắn vào nhóm zalo, đội ngũ thầy cô sẽ hỗ trợ.</p>
+      <p>📌 Phụ huynh cần thêm thông tin hoặc mong muốn đăng ký các khoá học mới vui lòng truy cập website của lớp:</p>
+      <p>👉 <a href="https://weblop0dong.vercel.app" class="text-blue-600 underline">https://weblop0dong.vercel.app</a></p>
+
+      <!-- Nút trở lại căn giữa (đã thu nhỏ) -->
+      <div class="button-container">
+        <button id="close-thong-bao"
+          class="px-4 py-2 bg-green-600 text-white text-base font-semibold rounded-full shadow hover:bg-green-700 transition">
+          Trở lại trang chủ
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('close-thong-bao').addEventListener('click', function () {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

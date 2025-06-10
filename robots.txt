@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://lophoc0dong.vercel.app/sitemap.xml

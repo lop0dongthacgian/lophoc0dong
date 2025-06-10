@@ -23,7 +23,7 @@
             <form id="contact-form" class="space-y-4">
                 <input type="text" name="name" placeholder="Họ và tên" required
                     class="w-full border px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <input type="email" name="email" placeholder="Email" required
+                <input type="email" name="email" placeholder="Email"
                     class="w-full border px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
                 <input type="text" name="phone" placeholder="Số điện thoại liên lạc của bạn" required
                     class="w-full border px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
@@ -76,7 +76,7 @@
                 }).catch(error => {
                     alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
                     console.error('Form submission error:', error);
-                     // Kích hoạt lại nút gửi nếu có lỗi
+                    // Kích hoạt lại nút gửi nếu có lỗi
                     submitButton.disabled = false;
                     submitButton.textContent = 'Gửi';
                 });

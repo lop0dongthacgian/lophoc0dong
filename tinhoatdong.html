@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tin hoạt động</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
   <style>
     #thong-bao-modal {
       position: fixed;
@@ -33,15 +35,6 @@
       position: relative;
     }
 
-    #thong-bao-content h2 {
-      font-weight: bold;
-      font-size: 1.25rem;
-      color: #228B22;
-      text-align: center;
-      text-decoration: underline;
-      margin-bottom: 1.25rem;
-    }
-
     #thong-bao-content p {
       color: #228B22;
       margin-bottom: 0.5rem;
@@ -53,47 +46,41 @@
       margin-top: 1.5rem;
     }
 
-    /* CSS cho thư viện ảnh cuộn ngang */
-    .image-gallery {
-      display: flex;
-      overflow-x: auto; /* Cho phép cuộn ngang bằng tay */
-      padding-bottom: 1rem;
-      -webkit-overflow-scrolling: touch;
-      position: relative;
-      cursor: grab; /* Thêm con trỏ kéo */
+    .swiper {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 40px;
     }
 
-    .image-gallery img {
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 250px;
       height: 200px;
-      width: auto;
-      margin-right: 1rem;
-      border-radius: 0.5rem;
-      flex-shrink: 0; /* Quan trọng để ảnh không bị co lại */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.5;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .swiper-slide-active {
+      transform: scale(1.1);
+      opacity: 1;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
       cursor: pointer;
     }
 
-    /* Tùy chỉnh thanh cuộn (tùy chọn) */
-    .image-gallery::-webkit-scrollbar {
-        height: 8px;
-    }
-
-    .image-gallery::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-    }
-
-    .image-gallery::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-    }
-
-    .image-gallery::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
-
-    /* CSS cho modal xem ảnh */
     #image-viewer-modal {
-      display: none; /* Mặc định ẩn */
+      display: none;
       position: fixed;
       z-index: 1001;
       left: 0;
@@ -143,36 +130,32 @@
     }
 
     .viewer-buttons {
-        display: flex;
-        justify-content: center;
-        width: 100%;
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
 
-    /* New styles for the close button within the full image view */
     .close-full-image {
-      position: absolute;
-      top: 15px; /* Tăng lên một chút */
-      right: 15px; /* Dịch vào một chút */
-      color: #FFF; /* Màu trắng cho dễ nhìn */
-      background-color: rgba(0, 0, 0, 0.5); /* Nền đen mờ để nổi bật hơn */
-      border-radius: 50%; /* Bo tròn thành hình tròn */
-      width: 35px; /* Kích thước nút */
-      height: 35px; /* Kích thước nút */
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      color: #FFF;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 24px; /* Tăng kích thước font */
+      font-size: 24px;
       font-weight: bold;
       cursor: pointer;
-      display: none; /* Hidden by default */
-      z-index: 10; /* Đảm bảo nút nằm trên ảnh */
+      display: none;
+      z-index: 1002;
     }
 
-    .close-full-image:hover,
-    .close-full-image:focus {
-      color: white;
-      background-color: rgba(0, 0, 0, 0.8); /* Đậm hơn khi hover */
-      text-decoration: none;
+    .close-full-image:hover {
+      background-color: rgba(0, 0, 0, 0.8);
     }
   </style>
 </head>
@@ -186,40 +169,21 @@
       <p>💰 Học phí: MIỄN PHÍ 100%</p>
       <p>📷 Hình ảnh khai giảng lớp vẽ:</p>
 
-      <div class="image-gallery">
-        <img src="image1/V1.jpg" alt="Hình ảnh lớp học 1">
-        <img src="image1/V2.jpg" alt="Hình ảnh lớp học 2">
-        <img src="image1/V3.jpg" alt="Hình ảnh lớp học 3">
-        <img src="image1/V4.jpg" alt="Hình ảnh lớp học 4">
-        <img src="image1/V5.jpg" alt="Hình ảnh lớp học 5">
-        <img src="image1/V6.jpg" alt="Hình ảnh lớp học 6">
-        <img src="image1/V7.jpg" alt="Hình ảnh lớp học 7">
-        <img src="image1/V8.jpg" alt="Hình ảnh lớp học 8">
-        <img src="image1/v9.jpg" alt="Hình ảnh lớp học 9">
-        <img src="image1/v10.jpg" alt="Hình ảnh lớp học 10">
-
-        <img src="image1/V1.jpg" alt="Hình ảnh lớp học 1">
-        <img src="image1/V2.jpg" alt="Hình ảnh lớp học 2">
-        <img src="image1/V3.jpg" alt="Hình ảnh lớp học 3">
-        <img src="image1/V4.jpg" alt="Hình ảnh lớp học 4">
-        <img src="image1/V5.jpg" alt="Hình ảnh lớp học 5">
-        <img src="image1/V6.jpg" alt="Hình ảnh lớp học 6">
-        <img src="image1/V7.jpg" alt="Hình ảnh lớp học 7">
-        <img src="image1/V8.jpg" alt="Hình ảnh lớp học 8">
-        <img src="image1/v9.jpg" alt="Hình ảnh lớp học 9">
-        <img src="image1/v10.jpg" alt="Hình ảnh lớp học 10">
-
-        <img src="image1/V1.jpg" alt="Hình ảnh lớp học 1">
-        <img src="image1/V2.jpg" alt="Hình ảnh lớp học 2">
-        <img src="image1/V3.jpg" alt="Hình ảnh lớp học 3">
-        <img src="image1/V4.jpg" alt="Hình ảnh lớp học 4">
-        <img src="image1/V5.jpg" alt="Hình ảnh lớp học 5">
-        <img src="image1/V6.jpg" alt="Hình ảnh lớp học 6">
-        <img src="image1/V7.jpg" alt="Hình ảnh lớp học 7">
-        <img src="image1/V8.jpg" alt="Hình ảnh lớp học 8">
-        <img src="image1/v9.jpg" alt="Hình ảnh lớp học 9">
-        <img src="image1/v10.jpg" alt="Hình ảnh lớp học 10">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="image1/V1.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="image1/V2.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="image1/V3.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="image1/V4.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="image1/V5.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="image1/V6.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="image1/V7.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="image1/V8.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="image1/v9.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="image1/v10.jpg" alt=""></div>
+        </div>
       </div>
+
       <p>👉 <a href="https://weblop0dong.vercel.app" class="text-blue-600 underline">https://weblop0dong.vercel.app</a></p>
 
       <div class="button-container">
@@ -233,162 +197,74 @@
 
   <div id="image-viewer-modal">
     <div id="image-viewer-content">
-      <span class="close-full-image" id="close-full-image-btn">&times;</span>
       <img id="full-image" src="" alt="Ảnh phóng to">
       <div class="viewer-buttons">
         <button id="download-image" class="download-button">Xem ảnh đầy đủ</button>
         <button id="close-image-viewer" class="close-button">Đóng</button>
       </div>
     </div>
+    <span class="close-full-image" id="close-full-image-btn">&times;</span>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      loop: true,
+      coverflowEffect: {
+        rotate: 30,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+    });
+  </script>
 
   <script>
     document.getElementById('close-thong-bao').addEventListener('click', function () {
       window.location.href = 'index.html';
     });
 
-    const imageGallery = document.querySelector('.image-gallery');
-    const images = document.querySelectorAll('.image-gallery img');
+    const images = document.querySelectorAll('.swiper-slide img');
     const imageViewerModal = document.getElementById('image-viewer-modal');
     const fullImage = document.getElementById('full-image');
     const closeImageViewerBtn = document.getElementById('close-image-viewer');
     const viewFullImageBtn = document.getElementById('download-image');
+    const closeFullImageBtn = document.getElementById('close-full-image-btn');
     const viewerButtons = document.querySelector('.viewer-buttons');
-    const closeFullImageBtn = document.getElementById('close-full-image-btn'); // New close button
 
-    const originalImageCount = 10;
-    let singleGalleryWidth = 0;
-    let isDragging = false;
-    let startX;
-    let scrollLeft;
-
-    // Calculate the width of the original set of images
-    const calculateGalleryWidth = () => {
-        singleGalleryWidth = 0;
-        // Calculate based on the first 'originalImageCount' images (which is the first cloned set)
-        for (let i = 0; i < originalImageCount; i++) {
-            singleGalleryWidth += images[i].offsetWidth;
-            singleGalleryWidth += parseFloat(getComputedStyle(images[i]).marginRight);
-        }
-    };
-
-    // Event listeners for drag to scroll (mouse)
-    imageGallery.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      imageGallery.style.cursor = 'grabbing';
-      startX = e.pageX - imageGallery.offsetLeft;
-      scrollLeft = imageGallery.scrollLeft;
-    });
-
-    imageGallery.addEventListener('mouseleave', () => {
-      isDragging = false;
-      imageGallery.style.cursor = 'grab';
-    });
-
-    imageGallery.addEventListener('mouseup', () => {
-      isDragging = false;
-      imageGallery.style.cursor = 'grab';
-    });
-
-    imageGallery.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      e.preventDefault();
-      const x = e.pageX - imageGallery.offsetLeft;
-      const walk = (x - startX) * 1.5; // Adjusted scroll speed
-      imageGallery.scrollLeft = scrollLeft - walk;
-    });
-
-    // Touch events for mobile devices
-    imageGallery.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      startX = e.touches[0].pageX - imageGallery.offsetLeft;
-      scrollLeft = imageGallery.scrollLeft;
-    });
-
-    imageGallery.addEventListener('touchend', () => {
-      isDragging = false;
-    });
-
-    imageGallery.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      const x = e.touches[0].pageX - imageGallery.offsetLeft;
-      const walk = (x - startX) * 1.5; // Adjusted scroll speed
-      imageGallery.scrollLeft = scrollLeft - walk;
-    });
-
-
-    // Loop scrolling logic for 3 sets of images
-    imageGallery.addEventListener('scroll', function() {
-        if (singleGalleryWidth === 0) {
-            calculateGalleryWidth();
-        }
-
-        // If scrolled past the original set (into the first cloned set)
-        if (imageGallery.scrollLeft >= singleGalleryWidth * 2) {
-            // Jump back to the start of the original set
-            imageGallery.scrollLeft = singleGalleryWidth;
-        }
-        // If scrolled backwards before the original set (into the last cloned set)
-        else if (imageGallery.scrollLeft < singleGalleryWidth) {
-            if (imageGallery.scrollLeft <= 0) { // If scrolled completely to the start of the last cloned set
-                // Jump to the start of the second cloned set (which is effectively the last part of the loop)
-                imageGallery.scrollLeft = singleGalleryWidth * 2;
-            }
-        }
-    });
-
-    // Event listener for opening image viewer
     images.forEach(img => {
-      img.addEventListener('click', function() {
-        // Prevent accidental looping while modal is open
-        imageGallery.style.overflowX = 'hidden';
-
-        const imgSrc = this.getAttribute('src');
-        fullImage.src = imgSrc;
+      img.addEventListener('click', function () {
+        fullImage.src = this.getAttribute('src');
         imageViewerModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
         viewerButtons.style.display = 'flex';
-        closeFullImageBtn.style.display = 'none'; // Hide the full image close button initially
+        closeFullImageBtn.style.display = 'none';
         fullImage.style.maxWidth = '100%';
         fullImage.style.maxHeight = '70vh';
       });
     });
 
-    // Event listener for closing image viewer
-    closeImageViewerBtn.addEventListener('click', function() {
+    closeImageViewerBtn.addEventListener('click', function () {
       imageViewerModal.style.display = 'none';
-      imageGallery.style.overflowX = 'auto'; // Re-enable manual scroll
-      document.body.style.overflow = ''; // Allow body scrolling
+      document.body.style.overflow = '';
       viewerButtons.style.display = 'flex';
-      closeFullImageBtn.style.display = 'none'; // Ensure it's hidden when closing modal
-      fullImage.style.maxWidth = '100%';
-      fullImage.style.maxHeight = '70vh';
+      closeFullImageBtn.style.display = 'none';
     });
 
-    // Event listener for "Xem ảnh đầy đủ" button
-    viewFullImageBtn.addEventListener('click', function() {
+    viewFullImageBtn.addEventListener('click', function () {
       viewerButtons.style.display = 'none';
-      closeFullImageBtn.style.display = 'flex'; // Show the new close button
+      closeFullImageBtn.style.display = 'flex';
       fullImage.style.maxWidth = '95%';
       fullImage.style.maxHeight = '95vh';
     });
 
-    // Event listener for the new "X" button to return from full screen
-    closeFullImageBtn.addEventListener('click', function() {
-      viewerButtons.style.display = 'flex'; // Show the original buttons again
-      closeFullImageBtn.style.display = 'none'; // Hide this close button
-      fullImage.style.maxWidth = '100%'; // Revert image size
-      fullImage.style.maxHeight = '70vh'; // Revert image size
-    });
-
-
-    // Initial scroll position when the page loads
-    window.addEventListener('load', () => {
-        if (images.length > 0) {
-             calculateGalleryWidth();
-             // Start at the beginning of the original image set (the middle set)
-             imageGallery.scrollLeft = singleGalleryWidth;
-        }
+    closeFullImageBtn.addEventListener('click', function () {
+      window.location.href = 'tinhoatdong.html';
     });
   </script>
 </body>

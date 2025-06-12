@@ -506,7 +506,7 @@
     </header>
 
     <main>
-        <section id="introduction" class="pt-12 pb-4 px-4 max-w-5xl mx-auto">
+        <section id="introduction" class="py-6 bg-blue-50 rounded shadow px-4 max-w-5xl mx-auto">
             <h2 class="text-3xl font-bold mb-4 text-center cursor-pointer text-blue-600" onclick="playGioiThieu()">Giới
                 thiệu</h2>
             <div class="mb-6">
@@ -548,7 +548,7 @@
                     </li>
                 </ul>
             </div>
-            <ul class="list-disc list-inside mb-6">
+            <ul class="list-disc list-inside mb-4">
                 <style>
   .link-xanh {
     color: #007BFF;
@@ -561,11 +561,9 @@
   }
 </style>
 
-<!-- Dòng link YouTube -->
 <a href="https://youtube.com/@lophoc0dong" target="_blank" class="link-xanh">
   <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_(2017).svg" alt="YouTube" width="24" style="vertical-align: middle; margin-right: 8px;">
   Theo dõi kênh YouTube Lớp học 0 đồng</a>
-<!-- Dòng mô tả thêm -->
 <div class="text-xanh-dam" style="margin-top: 4px;">
   Các phương tiện truyền thông nói về chúng tôi:</div>
                 <li><a href="https://www.youtube.com/embed/YCa5QePKxKo"
@@ -587,15 +585,15 @@
                 <li><a href="https://phunudanang.org.vn/thanh-khe-chung-tay-mo-lop-hoc-0-dong/"
                         class="text-blue-600 underline" target="_blank">Trang thông tin điện tử Đà Nẵng</a></li>
             </ul>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <iframe class="w-full h-64 rounded" src="https://www.youtube.com/embed/xUWT3TvBHTM" frameborder="0"
-                    allowfullscreen></iframe>
-    <p class="text-sm text-center text-blue-800 italic mt-1">Video "Lớp học 0 đồng" trên "Chào buổi sáng" - VTV1</p>
-    
-                <iframe class="w-full h-64 rounded" src="https://www.youtube.com/embed/8T5W3QjEWII" frameborder="0"
-                    allowfullscreen></iframe>
-    <p class="text-sm text-center text-blue-800 italic mt-1">"Lớp học 0 đồng" trên "Tôi yêu Đà Nẵng" - DaNang TV1</p>
-    
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <iframe id="vimeo-player-1" class="w-full h-64 rounded" src="https://player.vimeo.com/video/1092688844?h=311f55a5d6&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allowfullscreen></iframe>
+                    <p class="text-sm text-center text-blue-800 italic mt-0">Video "Lớp học 0 đồng" trên "Chào buổi sáng" - VTV1</p>
+                </div>
+                <div>
+                    <iframe id="vimeo-player-2" class="w-full h-64 rounded" src="https://player.vimeo.com/video/1092688874?h=dd18ab94c7&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allowfullscreen></iframe>
+                    <p class="text-sm text-center text-blue-800 italic mt-0">"Lớp học 0 đồng" trên "Tôi yêu Đà Nẵng" - DaNang TV1</p>
+                </div>
             </div>
         </section>
 
@@ -843,5 +841,52 @@
             if (stopBtn) stopBtn.classList.add('hidden');
         }
     </script>
-</body>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- PHẦN KHỞI TẠO ---
+            // Lấy các thẻ iframe video bằng ID bạn đã đặt ở Bước 1
+            const iframe1 = document.getElementById('vimeo-player-1');
+            const iframe2 = document.getElementById('vimeo-player-2');
+
+            // Kiểm tra xem các video có tồn tại trên trang không
+            if (iframe1 && iframe2) {
+                // Tạo các đối tượng "Player" để có thể điều khiển (dừng, phát)
+                const player1 = new Vimeo.Player(iframe1);
+                const player2 = new Vimeo.Player(iframe2);
+                const allPlayers = [player1, player2];
+
+                // --- LOGIC 1: KHI MỘT VIDEO PHÁT, DỪNG CÁC VIDEO KHÁC ---
+                // Hàm này sẽ được gọi khi video 1 bắt đầu phát
+                player1.on('play', function() {
+                    console.log('Video 1 đang phát, dừng video 2.');
+                    player2.pause(); // Ra lệnh cho video 2 tạm dừng
+                });
+
+                // Hàm này sẽ được gọi khi video 2 bắt đầu phát
+                player2.on('play', function() {
+                    console.log('Video 2 đang phát, dừng video 1.');
+                    player1.pause(); // Ra lệnh cho video 1 tạm dừng
+                });
+
+
+                // --- LOGIC 2: KHI NHẤN VÀO MENU, DỪNG TẤT CẢ VIDEO ---
+                // Lấy tất cả các mục trong menu
+                const menuItems = document.querySelectorAll('.menu-icon');
+                
+                // Thêm sự kiện "click" cho mỗi mục menu
+                menuItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        console.log('Đã nhấn menu, dừng tất cả video.');
+                        // Duyệt qua tất cả các video và ra lệnh tạm dừng
+                        allPlayers.forEach(player => {
+                            player.pause();
+                        });
+                    });
+                });
+            }
+        });
+    </script>
+    </body>
 </html>

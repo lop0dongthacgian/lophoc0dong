@@ -265,21 +265,34 @@
                 transform: translateX(-100%);
             }
         }
+        
+        /* New Blue Scrolling Text */
+        .scrolling-text-blue {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 15s linear infinite;
+            font-size: 3.5rem;
+            color: blue;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+        }
+
 
         /* Responsive adjustments for smaller screens */
         @media (max-width: 767px) {
-            .scrolling-text {
+            .scrolling-text, .scrolling-text-blue {
                 font-size: 1.8rem;
                 animation: scroll-left 15s linear infinite;
             }
         }
 
         @media (min-width: 768px) and (max-width: 1023px) {
-            .scrolling-text {
+            .scrolling-text, .scrolling-text-blue {
                 font-size: 2.5rem;
                 animation: scroll-left 12s linear infinite;
             }
         }
+
 
         /* --- STYLES FOR LINK CARD SECTION --- */
         .link-card {
@@ -683,8 +696,11 @@
                 </a>
             </div>
         </section>
-        </main>
+    </main>
 
+    <div class="scrolling-text-container">
+        <p class="scrolling-text-blue">Cám ơn nhà tài trợ "Sống Khoẻ" thành phố Hồ Chí Minh đã tặng ti vi 70 inch cho lớp học!</p>
+    </div>
     
 <footer class="bg-gray-800 text-white py-4 text-center">
     <p class="text-sm mb-2">© 2025 Lớp học 0 đồng - Kết nối yêu thương</p>

@@ -2,90 +2,103 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thông báo</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Thông báo tuyển sinh</title>
   <style>
-    #thong-bao-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('nentb.png');
-      background-size: cover;
-      background-position: center;
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
       display: flex;
       justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      padding: 1rem;
+      align-items: flex-start;
+      height: 100vh;
     }
-
-    #thong-bao-content {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 0.75rem;
-      max-width: 640px;
-      width: 100%;
-      max-height: 90vh;
+    .container {
+      width: 90%;
+      max-width: 700px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      padding: 20px;
+      margin-top: 20px;
       overflow-y: auto;
-      position: relative;
+      max-height: 90vh;
     }
-
-    #thong-bao-content h2 {
-      font-weight: bold;
-      font-size: 1.25rem;
-      color: #228B22;
+    h2 {
       text-align: center;
-      text-decoration: underline;
-      margin-bottom: 1.25rem;
+      font-size: 20px;
+      font-weight: bold;
+      color: #d9534f;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
-
-    #thong-bao-content p {
-      color: #228B22;
-      margin-bottom: 0.5rem;
+    .section {
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #ccc;
     }
-
-    .button-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 1.5rem;
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #0275d8;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      margin-bottom: 5px;
+    }
+    .content {
+      font-size: 14px;
+      color: #333;
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .highlight {
+      color: #5cb85c;
+      font-weight: bold;
     }
   </style>
 </head>
-<body class="bg-gray-100">
-  <div id="thong-bao-modal">
-    <div id="thong-bao-content">
-      <h2>📢 TUYỂN SINH NĂM HỌC 2025–2026</h2>
+<body>
+  <div class="container">
+    <h2>🌟 THÔNG BÁO TUYỂN SINH KHÓA 4 (2025–2026) 🌟</h2>
+    
+    <div class="section">
+      <div class="title">📘 Lớp tiếng Anh nhỏ (6–10 tuổi)</div>
+      <div class="content">
+        ⏰ Thời gian: 17h30 – 19h00, Thứ 7 hàng tuần<br>
+        Giảng viên: <span class="highlight">Cô Khánh Huyền</span><br>
+        Trợ giảng: <span class="highlight">Cô Minh Ngọc</span><br>
+        🎉 Địa điểm: Nhà sinh hoạt cộng đồng Trung Bình A – 131/4 Lý Thái Tổ, Thạc Gián, Thanh Khê, Đà Nẵng<br>
+        🎉 Khai giảng: 07/09/2025<br>
+        👉 Hoàn toàn miễn phí, số lượng có hạn – vui lòng đăng ký sớm.
+      </div>
+    </div>
 
-      <p>Mô hình “Lớp học 0 đồng” do Chi bộ Khu dân cư Trung Bình A3 phối hợp với các tình nguyện viên triển khai từ tháng 5/2022 đến nay.</p>
-      <p>Năm học 2025–2026, lớp mở 03 lớp học (mỗi lớp 15 học sinh), khai giảng ngày 07/9/2025:</p>
-      <ul class="list-disc pl-5 text-green-700">
-        <li>Lớp Tiếng Anh lớn: dành cho học sinh lớp 4, 5.</li>
-        <li>Lớp Tiếng Anh nhỏ: dành cho học sinh lớp 1, 2, 3.</li>
-        <li>Lớp Kỹ năng sống: dành cho học sinh từ lớp 1 đến lớp 5 tiểu học.</li>
-      </ul>
-      <p>Các lớp Tiếng Anh học theo giáo trình <strong>Family and Friends</strong>. Ngoài kiến thức chính khóa, lớp còn tổ chức hoạt động ngoại khóa nhằm bồi dưỡng và mở rộng kiến thức, bao gồm: rèn luyện kỹ năng thuyết trình, tham gia trò chơi học tập tại lớp, và các chuyến dã ngoại.</p>
-      <p>Nhờ sự hỗ trợ của Quỹ Sống Khỏe TP. Hồ Chí Minh, lớp đã được trang bị tivi 70 inch thay cho máy chiếu.</p>
-      <p>Lớp ưu tiên cho con em trong khu dân cư, đồng thời tiếp nhận học sinh thuộc hộ khó khăn ở các khu dân cư khác (nếu còn chỉ tiêu).</p>
-      <p>Kính mong mọi người chia sẻ thông tin để các em trong diện có cơ hội tiếp cận việc học tập (hoàn toàn miễn phí).</p>
-      <p>📌 Đăng ký học tại: <a href="https://lophoc0dong.vercel.app/" class="text-blue-600 underline">https://lophoc0dong.vercel.app/</a></p>
+    <div class="section">
+      <div class="title">📘 Lớp tiếng Anh lớn (9–10 tuổi)</div>
+      <div class="content">
+        ⏰ Thời gian: 18h00 – 19h30, Thứ 6 hàng tuần<br>
+        Giảng viên: <span class="highlight">Cô Phương Nhi</span><br>
+        Trợ giảng: <span class="highlight">Thầy Đặng Văn Tiến</span><br>
+        🎉 Địa điểm: Nhà sinh hoạt cộng đồng Trung Bình A – 131/4 Lý Thái Tổ, Thạc Gián, Thanh Khê, Đà Nẵng<br>
+        🎉 Khai giảng: 07/09/2025<br>
+        👉 Hoàn toàn miễn phí, số lượng có hạn – vui lòng đăng ký sớm.
+      </div>
+    </div>
 
-      <div class="button-container">
-        <button id="close-thong-bao"
-          class="px-4 py-2 bg-green-600 text-white text-base font-semibold rounded-full shadow hover:bg-green-700 transition">
-          Trở lại trang chủ
-        </button>
+    <div class="section">
+      <div class="title">🎓 Khóa học Kỹ năng – Định hướng nghề nghiệp dành cho học sinh cấp 3 (10, 11, 12)</div>
+      <div class="content">
+        Nằm trong chương trình <span class="highlight">Lucid Dream</span> (chuỗi lớp học 0 đồng).<br>
+        Hiện có thêm <span class="highlight">Khóa học Kỹ năng – Định hướng nghề nghiệp</span> với giảng viên giàu kinh nghiệm.<br><br>
+        ❓ Giúp giải đáp: chọn ngành nghề phù hợp, nhận diện điểm mạnh/yếu, rèn luyện sự tự tin.<br><br>
+        ✨ Tham gia để:<br>
+        - Hiểu rõ bản thân<br>
+        - Khám phá năng lực tiềm ẩn<br>
+        - Vẽ bản đồ định hướng nghề nghiệp<br>
+        - Rèn luyện kỹ năng mềm: thuyết trình, giao tiếp, tư duy phản biện<br><br>
+        📅 Thời gian: Tối Thứ 4 hằng tuần<br>
+        📍 Địa điểm: Nhà sinh hoạt cộng đồng Trung Bình A – 131/4 Lý Thái Tổ, Thạc Gián, Thanh Khê, Đà Nẵng
       </div>
     </div>
   </div>
-
-  <script>
-    document.getElementById('close-thong-bao').addEventListener('click', function () {
-      window.location.href = 'index.html';
-    });
-  </script>
 </body>
 </html>
-

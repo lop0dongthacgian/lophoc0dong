@@ -623,8 +623,6 @@
                 </div>
             </div>
         </section>
-
-
         <section id="gallery" class="py-12 bg-white">
             <div class="max-w-6xl mx-auto px-4">
                 <h2 class="text-3xl font-bold mb-8 text-center">Hình ảnh lớp học</h2>
@@ -638,35 +636,50 @@
                 </div>
             </div>
         </section>
+<section id="participate" class="bg-blue-50 py-12 px-4">
+    <div class="max-w-6xl mx-auto">
 
-        <section id="participate" class="bg-blue-50 py-12 px-4">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-xl font-bold mb-6 text-center">Bạn có thể tham gia cùng chúng tôi</h2>
-                <div class="grid md:grid-cols-3 gap-6 text-center">
-                    <div class="bg-green-100 p-4 rounded shadow hover:shadow-lg transition cursor-pointer"
-                        onclick="window.open('https://zalo.me/0879794343', '_blank');">
-                        <h3 class="text-base font-semibold mb-2 text-green-700">Tình nguyện viên</h3>
-                        <p class="text-gray-700 text-xs">Tham gia giảng dạy, tổ chức lớp hoặc hỗ trợ hoạt động.</p>
-                        <b class="text-sm">Vui lòng liên hệ số điện thoại, zalo: 0879794343</b>
-                    </div>
-                    <div class="bg-blue-100 p-4 rounded shadow hover:shadow-lg transition">
-                        <h3 class="text-base font-semibold mb-2 text-blue-700">Đăng ký học viên</h3>
-                        <p class="text-gray-700 text-xs">
-                            Đăng ký cho bé: ghi rõ <b>tên, tuổi, lớp đăng ký học, SĐT, tên cha mẹ/người đỡ đầu</b>
-                            và nhắn vào nhóm Zalo:
-                        </p>
-                        <p class="text-gray-700 mt-2">
-                            <a href="https://zalo.me/g/iiwcck776" class="text-blue-600 underline text-xs"
-                                target="_blank">Tham gia nhóm Zalo</a>
-                        </p>
-                    </div>
-                    <div class="bg-yellow-100 p-4 rounded shadow hover:shadow-lg transition"
-                        onclick="scrollToSection('contact')">
-                        <h3 class="text-base font-semibold mb-2 text-yellow-700">Mạnh Thường Quân</h3>
-                        <p class="text-gray-700 text-xs">Hỗ trợ tài chính, học cụ hoặc vật phẩm giúp duy trì lớp học.</p>
-                    </div>
-                </div>
+        <!-- Đăng ký học viên đưa lên đầu -->
+        <div class="bg-blue-100 p-8 rounded-xl shadow-lg mb-10 text-center">
+            <h3 class="text-3xl font-extrabold mb-4 text-red-600"
+                style="text-shadow: 2px 2px 6px rgba(0,0,0,0.5);">
+                📚 Đăng ký học viên
+            </h3>
+            <p class="text-gray-800 text-base mb-6 font-medium leading-relaxed">
+                Đăng ký cho bé: ghi rõ <b>tên, tuổi, lớp đăng ký học, SĐT, tên cha mẹ/người đỡ đầu</b>  
+                và nhắn vào nhóm Zalo:
+            </p>
+            <a href="https://zalo.me/g/iiwcck776" target="_blank"
+               class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full shadow-xl transition transform hover:scale-105"
+               style="text-shadow: 1px 1px 4px rgba(0,0,0,0.4);">
+                🚀 Tham gia nhóm Zalo
+            </a>
+        </div>
 
+        <!-- Tiêu đề các mục khác -->
+        <h2 class="text-2xl font-bold mb-8 text-center text-gray-800">Bạn có thể tham gia cùng chúng tôi</h2>
+
+        <!-- Grid 3 cột cân đối -->
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+            <!-- Tình nguyện viên -->
+            <div class="bg-green-100 p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer"
+                 onclick="window.open('https://zalo.me/0879794343', '_blank');">
+                <h3 class="text-lg font-bold mb-3 text-green-700">🤝 Tình nguyện viên</h3>
+                <p class="text-gray-700 text-sm mb-2">
+                    Tham gia giảng dạy, tổ chức lớp hoặc hỗ trợ hoạt động.
+                </p>
+                <b class="text-sm">Liên hệ: 0879794343 (Zalo)</b>
+            </div>
+
+            <!-- Mạnh thường quân -->
+            <div class="bg-yellow-100 p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer"
+                 onclick="scrollToSection('contact')">
+                <h3 class="text-lg font-bold mb-3 text-yellow-700">💝 Mạnh Thường Quân</h3>
+                <p class="text-gray-700 text-sm">
+                    Hỗ trợ tài chính, học cụ hoặc vật phẩm giúp duy trì lớp học.
+                </p>
+            </div>            
+</section>
                 <div class="games-header" onclick="toggleGames()">
                     <h3 class="text-xl font-bold text-blue-800">Trò chơi</h3>
                     <span class="arrow text-2xl">></span>
